@@ -1,0 +1,8 @@
+<%= 'user: ' + @users.username %>  
+
+<div id="topics">  
+  <strong>topics</strong> 
+  <% for topic in @users.topics %>  
+    <%= link_to topic.name, forums_topic_path(topic.id) %>  
+  <% end %>  
+</div> 

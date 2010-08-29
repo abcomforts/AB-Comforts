@@ -1,0 +1,23 @@
+<article>
+<section>
+<p id="notice"><%= notice %></p>
+<h1><%= link_to 'Forums', forums_root_path %> :: <%= @forums_forum.name %></h1>
+<table>  
+  <tr>  
+    <th width="60%">Topic Title</th>  
+    <th width="10%">Replies</th>  
+    <th width="30%">Last Post</th>  
+  </tr>  
+  <% for topic in @forums_forum.topics %>  
+    <tr>  
+      <td><%= link_to h(topic.name), forums_topic_path(topic.id) %>  
+      <td><%= topic.posts.count - 1 %></td>  
+	  	<td class="right"><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by 
+	  	<%= link_to topic.most_recent_user.username, "/users/#{topic.last_poster_id}" %></td>    
+    </tr>  
+  <% end %>  
+</table>  
+
+<p><%= link_to "New Topic", "/forums/topics/new?forum=#{@forums_forum.id}" %></p>  
+</section>
+</article>

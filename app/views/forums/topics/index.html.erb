@@ -1,0 +1,24 @@
+<h1>Listing forums_topics</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Last poster</th>
+    <th>Last post at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @forums_topics.each do |forums_topic| %>
+  <tr>
+    <td><%= forums_topic.name %></td>
+    <td><%= forums_topic.last_poster_id %></td>
+    <td><%= forums_topic.last_post_at %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Topic', new_forums_topic_path %>

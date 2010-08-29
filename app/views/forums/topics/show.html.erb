@@ -1,0 +1,19 @@
+<article>
+<section>
+<p id="notice"><%= notice %></p>
+<h1><%= link_to 'Forums', forums_root_path %> :: <%= link_to @forums_topic.forum.name, forums_show_path(@forums_topic.forum_id) %> :: <%= @forums_topic.name %></h1>
+  
+<% for post in @forums_topic.posts %>  
+<div class="post">  
+  <span class="left"><%= link_to post.user.username, 
+			"/users/#{post.user.id}" %></span>
+  <span class="right"><%= post.content %><br /><%= link_to "Edit", edit_forums_post_path(post) %></span>  
+</div>  
+<% end %> 
+  
+<p>  
+  <%= link_to "Edit", edit_forums_topic_path(@forums_topic) %> |
+  <%= link_to "Reply", "#{new_forums_post_path}?topic=#{@forums_topic.id}" %>
+</p>
+</section>
+</article>

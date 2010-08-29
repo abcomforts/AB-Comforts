@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @forums_post.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_forums_post_path(@forums_post) %> |
+<%= link_to 'Back', forums_posts_path %>

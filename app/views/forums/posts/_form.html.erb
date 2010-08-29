@@ -1,0 +1,25 @@
+<%= form_for(@forums_post) do |f| %>
+  <% if @forums_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forums_post.errors.count, "error") %> prohibited this forums_post from being saved:</h2>
+
+      <ul>
+      <% @forums_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <% if params[:topic] && !params[:edit] %>
+  	<input type="hidden" id="topic_forum_id" name="forums_post[topic_id]" value="<%= params[:topic] %>" />
+  <% end %>  
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
